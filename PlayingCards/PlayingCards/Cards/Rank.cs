@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PlayingCards
+﻿namespace PlayingCards
 {
+    /// <summary>
+    /// Standard list of ranks on a playing cards
+    /// </summary>
     public enum Rank
     {
         Ace,
