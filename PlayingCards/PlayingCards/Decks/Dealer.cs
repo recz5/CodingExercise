@@ -5,11 +5,11 @@ namespace PlayingCards
     /// <summary>
     /// Standard deck of 52 playing cards (four suits of thirteen cards each)
     /// </summary>
-    public class Dealer
+    public class Dealer : IDeck
     {
         private IDeck _deck;
 
-        internal Dealer(IDeck deck)
+        public Dealer(IDeck deck)
         {
             _deck = deck;
         }
@@ -24,7 +24,7 @@ namespace PlayingCards
             _deck.Sort();
         }
 
-        internal Dictionary<int, Card> DeckOfCards
+        public Dictionary<int, Card> DeckOfCards
         {
             get { return _deck.DeckOfCards; }
         }

@@ -4,10 +4,16 @@ using System.Linq;
 
 namespace PlayingCards
 {
-    internal class StandardDeck : IDeck
+    public class StandardDeck : IDeck
     {
         private Dictionary<int, Card> _cards = new Dictionary<int, Card>();
 
+        public StandardDeck()
+        {
+            if (_cards.Count == 0)
+                CreateStandardDeck();
+        }
+        
         /// <summary>
         /// Collection of 52 Cards (four suits of thirteen cards each)
         /// </summary>
@@ -15,8 +21,6 @@ namespace PlayingCards
         {
             get
             {
-                if (_cards.Count == 0)
-                    CreateStandardDeck();
                 return _cards;
             }
         }

@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace PlayingCards
+﻿namespace PlayingCards
 {
     /// <summary>
     /// Class that represents a playing card
     /// </summary>
-    internal class Card : ICard
+    public class Card : ICard
     {
         private int _suit;
 
@@ -20,14 +18,16 @@ namespace PlayingCards
         /// </summary>
         /// <param name="suit">Type of Suit</param>
         /// <param name="rank">Type of Rank</param>
-        public Card(Suit suit, Rank rank)
+        internal Card(Suit suit, Rank rank)
         {
             _suit = (int)suit;
 
             _rank = (int)rank;
         }
 
-
+        /// <summary>
+        /// Card's name in format of {"Rank" of "Suit"} e.g. Ace of Spades
+        /// </summary>
         public string CardName
         {
             get
@@ -39,6 +39,9 @@ namespace PlayingCards
             }
         }
 
+        /// <summary>
+        /// Index of Card's Suit in a Enum List
+        /// </summary>
         public int CardSuit
         {
             get
@@ -47,6 +50,9 @@ namespace PlayingCards
             }
         }
 
+        /// <summary>
+        /// Index of Card's Rank in a Enum List
+        /// </summary>
         public int SuitRank
         {
             get
@@ -56,6 +62,9 @@ namespace PlayingCards
 
         }
 
+        /// <summary>
+        /// Index of Card's Rank in a deck of 52 cards
+        /// </summary>
         public int DeckRank
         {
             get
@@ -69,6 +78,9 @@ namespace PlayingCards
             }
         }
 
+        /// <summary>
+        /// Sets the name of the card
+        /// </summary>
         private void SetName()
         {
             _name = Utilities.SetCardName(this);
