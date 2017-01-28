@@ -3,10 +3,8 @@
     /// <summary>
     /// Standard list of ranks on a playing cards
     /// </summary>
-    public enum Rank
+    internal enum Rank
     {
-        Ace,
-        One,
         Two,
         Three,
         Four,
@@ -19,5 +17,6 @@
         Jack,
         Queen,
         King,
+        Ace,
     }
 }

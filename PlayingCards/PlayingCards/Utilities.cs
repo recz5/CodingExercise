@@ -1,4 +1,4 @@
-﻿using PlayingCards.Cards;
+﻿using PlayingCards;
 using System;
 
 namespace PlayingCards
@@ -15,7 +15,7 @@ namespace PlayingCards
         /// <returns></returns>
         internal static string SetCardName(Card card)
         {
-            return String.Format("{0} of {1}", card.CardRank, card.CardSuit);
+            return String.Format("{0} of {1}", (Rank)card.SuitRank, (Suit)card.CardSuit);
         }
     }
 }
