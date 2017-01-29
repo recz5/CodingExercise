@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingCards", "PlayingCards\PlayingCards.csproj", "{26AC9D0D-9A43-4DD1-87C8-1C30D3F4C4B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlayingCards", "TestPlayingCards\TestPlayingCards.csproj", "{9B80DB6B-D900-46AB-A331-476E121F590B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingCardsApplication", "PlayingCardsApplication\PlayingCardsApplication.csproj", "{E4D59575-2423-46AB-AC33-4FDD3C3F42D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlayingCards_xUnit", "TestPlayingCards_xUnit\TestPlayingCards_xUnit.csproj", "{F5943662-F5DD-446E-ACA7-96F61B4D075F}"
@@ -24,10 +22,6 @@ Global
 		{26AC9D0D-9A43-4DD1-87C8-1C30D3F4C4B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26AC9D0D-9A43-4DD1-87C8-1C30D3F4C4B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26AC9D0D-9A43-4DD1-87C8-1C30D3F4C4B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B80DB6B-D900-46AB-A331-476E121F590B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B80DB6B-D900-46AB-A331-476E121F590B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B80DB6B-D900-46AB-A331-476E121F590B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B80DB6B-D900-46AB-A331-476E121F590B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4D59575-2423-46AB-AC33-4FDD3C3F42D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4D59575-2423-46AB-AC33-4FDD3C3F42D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4D59575-2423-46AB-AC33-4FDD3C3F42D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
