@@ -1,6 +1,5 @@
 ﻿using PlayingCards;
 using System;
-using System.Linq;
 
 namespace PlayingCardsApplication
 {
