@@ -41,9 +41,6 @@ namespace PlayingCardsApplication
 
                 input = AskUserInput();
             }
-            
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
         }
 
         /// <summary>
