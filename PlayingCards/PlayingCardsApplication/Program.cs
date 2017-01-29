@@ -16,8 +16,7 @@ namespace PlayingCardsApplication
         {
             Start();
 
-            Console.WriteLine("Enter new command.");
-            string input = Console.ReadLine();
+            string input = AskUserInput();
 
             while (input != "/exit")
             {
@@ -40,8 +39,7 @@ namespace PlayingCardsApplication
                         break;
                 }
 
-                Console.WriteLine("Enter new command.");
-                input = Console.ReadLine();
+                input = AskUserInput();
             }
             
             Console.WriteLine("Press any key to exit.");
@@ -112,5 +110,15 @@ namespace PlayingCardsApplication
             Console.WriteLine("  /help    - Displays available commands             ");
             Console.WriteLine("-----------------------------------------------------");
         }
+
+        /// <summary>
+        /// Ask users input
+        /// </summary>
+        /// <returns></returns>
+        private static string AskUserInput()
+        {
+            Console.WriteLine("Enter command.");
+            return Console.ReadLine();
+        } 
     }
 }
