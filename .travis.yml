@@ -1,7 +1,7 @@
 language: csharp
 solution: "./PlayingCards/PlayingCards.sln"
 script:
-    - mono ../lib/xunit/xunit.console.clr4.x86.exe ./PlayingCards/TestPlayingCards_xUnit/bin/Debug/TestPlayingCards_xUnit.dll
+    - mono ./PlayingCards/packages/xunit.runner.console.2.2.0-beta5-build3474/tools/xunit.console.exe ./PlayingCards/TestPlayingCards_xUnit/bin/Debug/TestPlayingCards_xUnit.dll
     
     
     
