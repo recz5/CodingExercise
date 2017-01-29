@@ -1,2 +1,2 @@
 language: csharp
-solution: PlayingCards.sln
+solution: PlayingCards/PlayingCards.sln
