@@ -33,7 +33,7 @@ namespace TestPlayingCards_xUnit
         {
             StandardDeck sd = new StandardDeck();
 
-            Assert.Equal(null, sd);
+            Assert.NotEqual(null, sd);
 
             Assert.NotEqual(null, sd.DeckOfCards);
 
