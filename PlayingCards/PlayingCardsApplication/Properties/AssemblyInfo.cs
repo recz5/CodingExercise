@@ -1,21 +1,15 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-//Make internal classes visible to Unit Test project
-[assembly: InternalsVisibleTo("TestPlayingCards")]
-
-//Because it exposes externally visible types
-[assembly: CLSCompliant(true)]
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PlayingCards")]
+[assembly: AssemblyTitle("PlayingCardsApplication")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PlayingCards")]
+[assembly: AssemblyProduct("PlayingCardsApplication")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -26,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("26ac9d0d-9a43-4dd1-87c8-1c30d3f4c4b4")]
+[assembly: Guid("e4d59575-2423-46ab-ac33-4fdd3c3f42d0")]
 
 // Version information for an assembly consists of the following four values:
 //

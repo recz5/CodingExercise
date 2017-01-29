@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PlayingCards;
-using PlayingCards.Cards;
-using PlayingCards.Decks;
 
 namespace TestPlayingCards
 {
@@ -10,96 +8,173 @@ namespace TestPlayingCards
     public class PlayingCardsTests
     {
         [TestMethod]
-        [TestCategory("CardsNamespace")]
+        [TestCategory("Cards")]
         public void Card()
         {
             Suit suit = Suit.Spades;
-            Rank rnk = Rank.King;
 
+            Rank rnk = Rank.King;
 
             Card crd = new Card(suit, rnk);
 
-            Assert.AreEqual(suit, crd.CardSuit);
+            Assert.AreEqual((int)suit, crd.CardSuit);
 
-            Assert.AreEqual(rnk, crd.CardRank);
+            Assert.AreEqual((int)rnk, crd.SuitRank);
+
+            Assert.AreEqual(0, crd.DeckRank);
 
             Assert.AreEqual(String.Format("{0} of {1}",rnk, suit), crd.CardName);
 
         }
 
+
         [TestMethod]
-        [TestCategory("CardsNamespace")]
-        public void CardOfSpades()
+        [TestCategory("Decks")]
+        public void StandardDeck_Shuffle()
         {
-            CardsOfSpades spades = new CardsOfSpades();
+            StandardDeck sd = new StandardDeck();
 
-            Assert.AreEqual(Suit.Spades, spades.Suit);
+            Assert.AreNotEqual(null, sd);
 
-            Assert.AreEqual(Enum.GetValues(typeof(Rank)).Length, spades.SetOfCards.Count);
+            Assert.AreNotEqual(null, sd.DeckOfCards);
+
+            sd.Shuffle();
+
+            int i = 0;
+
+            int ordered = 0;
+
+            int unordered = 0;
+
+            foreach (var cards in sd.DeckOfCards)
+            {
+                i++;
+
+                if (i == cards.Value.DeckRank)
+                    ordered++;
+                else
+                    unordered++;
+            }
+
+            Assert.AreNotEqual(sd.DeckOfCards.Count, ordered);
+
+            Assert.AreEqual(true, unordered > ordered);
 
         }
 
         [TestMethod]
-        [TestCategory("CardsNamespace")]
-        public void CardOfHearts()
+        [TestCategory("Decks")]
+        public void StandardDeck_Sort()
         {
-            CardsOfHearts spades = new CardsOfHearts();
+            StandardDeck sd = new StandardDeck();
 
-            Assert.AreEqual(Suit.Hearts, spades.Suit);
+            Assert.AreNotEqual(null, sd);
 
-            Assert.AreEqual(Enum.GetValues(typeof(Rank)).Length, spades.SetOfCards.Count);
+            Assert.AreNotEqual(null, sd.DeckOfCards);
+
+            sd.Shuffle();
+
+            sd.Sort();
+
+            int i = 0;
+
+            int ordered = 0;
+
+            int unordered = 0;
+
+            foreach (var cards in sd.DeckOfCards)
+            {
+                i++;
+
+                if (i == cards.Value.DeckRank)
+                    ordered++;
+                else
+                    unordered++;
+            }      
+
+            Assert.AreEqual(sd.DeckOfCards.Count, ordered);
+
+            Assert.AreEqual(true, unordered < ordered);
+
+            Assert.AreEqual(true, unordered == 0);
+
+            Assert.AreEqual(true, ordered == 52);
+        }
+
+
+        [TestMethod]
+        [TestCategory("Decks")]
+        public void StandardDeck_DeckOfCards()
+        {
+            StandardDeck sd = new StandardDeck();
+
+            Assert.AreEqual(52, sd.DeckOfCards.Count);
         }
 
         [TestMethod]
-        [TestCategory("CardsNamespace")]
-        public void CardOfDiamonds()
+        [TestCategory("Dealers")]
+        public void Dealer()
         {
-            CardsOfDiamonds spades = new CardsOfDiamonds();
+            Dealer dealer = new Dealer(new StandardDeck());
 
-            Assert.AreEqual(Suit.Diamonds, spades.Suit);
+            var shuffle = dealer.GetType().GetMethod("Shuffle");
 
-            Assert.AreEqual(Enum.GetValues(typeof(Rank)).Length, spades.SetOfCards.Count);
+            Assert.AreNotEqual(null, shuffle);
+
+            var sort = dealer.GetType().GetMethod("Sort");
+
+            Assert.AreNotEqual(null, sort);
+
+            var theDeck = dealer.GetType().GetProperty("DeckOfCards");
+
+            Assert.AreNotEqual(null, theDeck);
+
         }
 
         [TestMethod]
-        [TestCategory("CardsNamespace")]
-        public void CardOfClubs()
+        [TestCategory("Dealers")]
+        public void Dealer_Features()
         {
-            CardsOfClubs spades = new CardsOfClubs();
+            Dealer dealer = new Dealer(new StandardDeck());
 
-            Assert.AreEqual(Suit.Clubs, spades.Suit);
+            Assert.AreNotEqual(null, dealer);
 
-            Assert.AreEqual(Enum.GetValues(typeof(Rank)).Length, spades.SetOfCards.Count);
+            Assert.AreNotEqual(null, dealer.DeckOfCards);
+
+            try
+            {
+                dealer.Shuffle();
+
+                Assert.AreNotEqual(null, dealer.DeckOfCards);
+
+            }
+            catch
+            {
+                Assert.Fail("Failed to shuffle the deck!");
+            }
+
+            try
+            {
+                dealer.Sort();
+
+                Assert.AreNotEqual(null, dealer.DeckOfCards);
+
+            }
+            catch
+            {
+                Assert.Fail("Failed to sort the deck!");
+            }
         }
 
-        [TestMethod]
-        [TestCategory("DecksNamespace")]
-        public void StandardDeck()
-        {
-            StandardDeck deck = new StandardDeck(new Deck());
-
-            var test = deck.DeckOfCards;
-
-            //deck.Shuffle();
-
-            //deck.Sort();
-
-            //foreach (var card in deck.DeckOfCards)
-            //{
-                
-            //}         
-
-        }
 
         [TestMethod]
         [TestCategory("Utility")]
         public void Utilities_SetCardName()
         {
-            string result = Utilities.SetCardName(new PlayingCards.Cards.Card(Suit.Hearts, Rank.King));
+            string result = Utilities.SetCardName(new PlayingCards.Card(Suit.Hearts, Rank.King));
 
             Assert.AreEqual("King of Hearts", result);
         }
-
 
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PlayingCards.Cards
+﻿namespace PlayingCards
 {
     /// <summary>
     /// Interface of Card
@@ -7,8 +7,10 @@
     {
         string CardName { get; }
 
-        Suit CardSuit { get; }
+        int CardSuit { get; }
 
-        Rank CardRank { get; }
+        int SuitRank { get; }
+
+        int DeckRank { get; set; }
     }
 }

@@ -1,15 +1,15 @@
-﻿using System;
-
-namespace PlayingCards.Cards
+﻿namespace PlayingCards
 {
     /// <summary>
     /// Class that represents a playing card
     /// </summary>
     public class Card : ICard
     {
-        private Suit _suit;
+        private int _suit;
 
-        private Rank _rank;
+        private int _rank;
+
+        private int _deckRank = 0;
 
         private string _name = null;
 
@@ -18,13 +18,16 @@ namespace PlayingCards.Cards
         /// </summary>
         /// <param name="suit">Type of Suit</param>
         /// <param name="rank">Type of Rank</param>
-        public Card(Suit suit, Rank rank)
+        internal Card(Suit suit, Rank rank)
         {
-            _suit = suit;
+            _suit = (int)suit;
 
-            _rank = rank;
+            _rank = (int)rank;
         }
 
+        /// <summary>
+        /// Card's name in format of {"Rank" of "Suit"} e.g. Ace of Spades
+        /// </summary>
         public string CardName
         {
             get
@@ -36,7 +39,10 @@ namespace PlayingCards.Cards
             }
         }
 
-        public Suit CardSuit
+        /// <summary>
+        /// Index of Card's Suit in a Enum List
+        /// </summary>
+        public int CardSuit
         {
             get
             {
@@ -44,14 +50,37 @@ namespace PlayingCards.Cards
             }
         }
 
-        public Rank CardRank
+        /// <summary>
+        /// Index of Card's Rank in a Enum List
+        /// </summary>
+        public int SuitRank
         {
             get
             {
                 return _rank;
             }
+
         }
 
+        /// <summary>
+        /// Index of Card's Rank in a deck of 52 cards
+        /// </summary>
+        public int DeckRank
+        {
+            get
+            {
+                return _deckRank;
+            }
+
+            set
+            {
+                _deckRank = value;
+            }
+        }
+
+        /// <summary>
+        /// Sets the name of the card
+        /// </summary>
         private void SetName()
         {
             _name = Utilities.SetCardName(this);

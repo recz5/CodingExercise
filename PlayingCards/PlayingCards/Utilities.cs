@@ -1,12 +1,9 @@
-﻿using PlayingCards.Cards;
-using System;
-
-namespace PlayingCards
+﻿namespace PlayingCards
 {
     /// <summary>
     /// Helper Class
     /// </summary>
-    public static class Utilities
+    internal static class Utilities
     {
         /// <summary>
         /// Generates string card's name
@@ -15,7 +12,8 @@ namespace PlayingCards
         /// <returns></returns>
         internal static string SetCardName(Card card)
         {
-            return String.Format("{0} of {1}", card.CardRank, card.CardSuit);
+            //return String.Format("{0} of {1}", (Rank)card.SuitRank, (Suit)card.CardSuit);
+            return string.Concat((Rank)card.SuitRank, " of ", (Suit)card.CardSuit);
         }
     }
 }
