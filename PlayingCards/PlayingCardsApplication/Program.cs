@@ -1,5 +1,6 @@
 ﻿using PlayingCards;
 using System;
+using System.IO;
 
 namespace PlayingCardsApplication
 {
@@ -116,8 +117,27 @@ namespace PlayingCardsApplication
         /// <returns></returns>
         private static string AskUserInput()
         {
-            Console.WriteLine("Enter command.");
-            return Console.ReadLine();
+            string userInput;
+
+            //TODO: Add more exception handling and user input validation
+            try
+            {
+                Console.WriteLine("Enter command.");
+                userInput = Console.ReadLine();
+                return userInput;
+            }
+            catch (OutOfMemoryException ex)
+            {
+                return "OutOfMemoryException Exception!. \r" + ex.Message;
+            }
+            catch (IOException ex)
+            {
+                return "IOException Exception!. \r" + ex.Message;
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                return "ArgumentOutOfRangeException Exception!. \r" + ex.Message;
+            }            
         } 
     }
 }
