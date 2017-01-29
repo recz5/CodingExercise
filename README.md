@@ -29,3 +29,36 @@ We must be able to read and run your results. To that end:
 * Do not use code or libraries that are protected by copyright, intellectual property rights, or any other restriction that prevents free sharing and use of the code or libraries.
 
 All work will be evaluated on a computer running Windows 7 or Windows 10.
+
+## The Solution
+
+The MVP solution contains 3 projects using C#.Net, Visual Studio, Microsoft Unit Test Framework, C# Console Application, Git...
+
+    1. PlayingCards DLL
+       * Module for creating a standard deck
+       * Contains objects that represent Cards, Deck of cards, Dealer, shuffle and sort
+       * Maintainability 93
+       * Complexity 42 (methods are below 10)
+       * Coupling 18 (high coupling on StandardDeck)
+       * Depth of Inheritance 1
+       * 100% Test Coverage
+
+    2. PlayingCardsApplication
+       * Simple user interface that demonstrate a standard deck of playing cards
+       * Maintainability 69 (needs review/refactoring/redesign)
+       * Complexity 17 (methods are below 10)
+       * Coupling 12 (would need to review/redesign)
+       * Depth of Inheritance 1
+
+    3. TestPlayingCards
+       * Unit test for PlayingCards DLL
+       * Maintainability 65 (needs review/refactoring/redesign)
+
+#### How to use and contribute
+
+    * To contribute - you'll need Git, an IDE for compiling C#.Net and Windows environment
+    * To test code only - you'll an IDE for compiling C#.Net and Windows environment
+    * To use released MVP version - you'll Windows environment
+
+     
+    
