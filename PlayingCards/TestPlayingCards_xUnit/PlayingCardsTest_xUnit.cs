@@ -8,7 +8,7 @@ using PlayingCards;
 
 namespace TestPlayingCards_xUnit
 {
-    public class PlayingCardsTest
+    public class PlayingCardsTest_xUnit
     {
         [Fact]
         public void Card()

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 //Make internal classes visible to Unit Test project
 [assembly: InternalsVisibleTo("TestPlayingCards")]
-[assembly: InternalsVisibleTo("TestPlayingCards_XUnit")]
+[assembly: InternalsVisibleTo("TestPlayingCards_xUnit")]
 
 //Because it exposes externally visible types
 [assembly: CLSCompliant(true)]
