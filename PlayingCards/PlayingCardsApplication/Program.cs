@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace PlayingCardsApplication
 {
+    /// <summary>
+    /// A simple application that represents a dealer with a deck of cards.
+    /// The dealer can shuffle and sort a standard deck of 52 playing cards.
+    /// </summary>
     class Program
     {
         private static Dealer dealer;
@@ -12,36 +16,35 @@ namespace PlayingCardsApplication
         {
             Start();
 
+            Console.WriteLine("Enter new command.");
             string input = Console.ReadLine();
 
             while (input != "/exit")
             {
-                if (input == "/shuffle" || args.Contains("/shuffle"))
+                switch (input)
                 {
-                    Shuffle();
-                }
-                else if (input == "/sort" || args.Contains("/sort"))
-                {
-                    Sort();
-                }
-                else if (input == "/show" || args.Contains("/show"))
-                {
-                    Show();
-                }
-                else if (input == "/help" || args.Contains("/help"))
-                {
-                    Commands();
-                }
-                else
-                {
-                    Console.WriteLine("Unrecognized command! Enter /help to see avaible commands..");
+                    case "/shuffle":
+                        Shuffle();
+                        break;
+                    case "/sort":
+                        Sort();
+                        break;
+                    case "/show":
+                        Show();
+                        break;
+                    case "/help":
+                        Commands();
+                        break;
+                    default:
+                        Console.WriteLine("Unrecognized command! Enter /help to see avaible commands..");
+                        break;
                 }
 
+                Console.WriteLine("Enter new command.");
                 input = Console.ReadLine();
             }
-            // Keep the console window open in debug mode.
+            
             Console.WriteLine("Press any key to exit.");
-
             Console.ReadKey();
         }
 
@@ -50,10 +53,11 @@ namespace PlayingCardsApplication
         /// </summary>
         private static void Start()
         {
+            Commands();
             Console.WriteLine("Initializing onjects....");
             dealer = new Dealer(new StandardDeck());
             Console.WriteLine("Initialization Complete....");
-            Commands();
+            
         }
 
         /// <summary>
@@ -61,11 +65,11 @@ namespace PlayingCardsApplication
         /// </summary>
         private static void Show()
         {
-            Console.WriteLine("-- Showing Current Deck --");
+            Console.WriteLine("Showing Current Deck...");
 
             foreach (Card card in dealer.DeckOfCards.Values)
             {
-                Console.WriteLine("{0}\r", card.CardName);
+                Console.WriteLine(" {0}\r", card.CardName);
             }
         }
 
@@ -98,12 +102,15 @@ namespace PlayingCardsApplication
         /// </summary>
         private static void Commands()
         {
-            Console.WriteLine("Valid Commands:");
-            Console.WriteLine("/show - Displays current deck");
-            Console.WriteLine("/shuffle - Randomly shuffles current deck");
-            Console.WriteLine("/sort - Sorts current deck in ascending order");
-            Console.WriteLine("/exit - Exits application");
-            Console.WriteLine("/help - Displays available commands");
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("              Valid Commands:                        ");
+            Console.WriteLine("                                                     ");
+            Console.WriteLine("  /show    - Displays current deck                   ");
+            Console.WriteLine("  /shuffle - Randomly shuffles current deck          ");
+            Console.WriteLine("  /sort    - Sorts current deck in ascending order   ");
+            Console.WriteLine("  /exit    - Exits application                       ");
+            Console.WriteLine("  /help    - Displays available commands             ");
+            Console.WriteLine("-----------------------------------------------------");
         }
     }
 }
