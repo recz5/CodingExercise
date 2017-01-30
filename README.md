@@ -29,3 +29,75 @@ We must be able to read and run your results. To that end:
 * Do not use code or libraries that are protected by copyright, intellectual property rights, or any other restriction that prevents free sharing and use of the code or libraries.
 
 All work will be evaluated on a computer running Windows 7 or Windows 10.
+
+## The Solution
+
+The MVP solution contains 3 projects using C#.Net, Visual Studio, Microsoft Unit Test Framework, C# Console Application, Git...
+
+    1. PlayingCards DLL
+       * Module for creating a standard deck
+       * Contains objects that represent Cards, Deck of cards, Dealer, shuffle and sort
+       * Maintainability 93
+       * Complexity 42 (methods are below 10)
+       * Coupling 18 (high coupling on StandardDeck)
+       * Depth of Inheritance 1
+       * 100% Test Coverage
+
+    2. PlayingCardsApplication
+       * Simple user interface that demonstrate a standard deck of playing cards
+       * Maintainability 69 (needs review/refactoring/redesign)
+       * Complexity 17 (methods are below 10)
+       * Coupling 12 (would need to review/redesign)
+       * Depth of Inheritance 1
+
+    3. TestPlayingCards
+       * Unit test for PlayingCards DLL
+       * Maintainability 65 (needs review/refactoring/redesign)
+
+    4. TestPlayingCards_xUnit
+       * Unit test for PlayingCards DLL
+       * using xUnit Framework
+       * Added for GitHub Travis Continuous Integration since there is no open source support for Visual Studio UnitTest framework is not supported 
+
+#### How to use and contribute
+
+    * To contribute - you'll need Git, an IDE for compiling C#.Net and Windows environment
+    * To test code only - you'll an IDE for compiling C#.Net and Windows environment
+    * To use released MVP version - you'll Windows environment
+
+#### Contributing
+
+    * Clone repo
+    * Create new local branch
+    * Publish local branch
+    * Pass Travis CI
+    * Create pull request
+
+#### Branches
+
+    * master - current released version (running MVP_xUnit_DotNet4.5)
+    * MVP - dotNet 4.5 version, Microsoft UnitTest framework
+        * TestPlayingCards not compiled because Travis CI. Enable compilation if running in Visual Studio
+    * MVP_xUnit_DotNet4.5 - dotNet 4.5 version, xUnit framework v2
+        * TestPlayingCards not compiled because Travis CI. Enable compilation if running in Visual Studio
+    * mvp_xunit_framework - dotNet 4.0, xUnit framework v1
+        * TestPlayingCards not included.
+
+#### Running xUnit Tests
+    
+    * Build Solution succesfully
+    * Go to the ***project location*** \PlayingCards\packages\xunit.runner.console.2.2.0-beta5-build3474\tools
+    * Start a new session of command shell window
+    * enter command and hit enter
+        * ./xunit.console.exe ../../../../PlayingCards/TestPlayingCards_xUnit/bin/Debug/TestPlayingCards_xUnit.dll
+    * xunit runner should start immediately and gives you the "Test Execution Summary"
+
+#### Enable Visual Studio Unit Test
+
+    * Go to the solution explorer
+    * Expand TestPlayingCards project
+    * Highlight PlayingCardsTests.cs file
+    * In Properties window, Update "Build Action" to Compile.
+    * Rebuild Solution
+    * Test Explorer should start discovering the tests and start running the tests if Auto run is enabled.
+

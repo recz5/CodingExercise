@@ -1,0 +1,8 @@
+language: csharp
+solution: "./PlayingCards/PlayingCards.sln"
+install:
+  - nuget restore "./PlayingCards/PlayingCards.sln"
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+script:
+  - xbuild ./PlayingCards/PlayingCards.sln
+  - mono ./PlayingCards/packages/xunit.runner.console*/tools/xunit.console.exe ./PlayingCards/TestPlayingCards_xUnit/bin/Debug/TestPlayingCards_xUnit.dll
