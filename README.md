@@ -83,3 +83,21 @@ The MVP solution contains 3 projects using C#.Net, Visual Studio, Microsoft Unit
     * mvp_xunit_framework - dotNet 4.0, xUnit framework v1
         * TestPlayingCards not included.
 
+#### Running xUnit Tests
+    
+    * Build Solution succesfully
+    * Go to the ***project location*** \PlayingCards\packages\xunit.runner.console.2.2.0-beta5-build3474\tools
+    * Start a new session of command shell window
+    * enter command and hit enter
+        * ./xunit.console.exe ../../../../PlayingCards/TestPlayingCards_xUnit/bin/Debug/TestPlayingCards_xUnit.dll
+    * xunit runner should start immediately and gives you the "Test Execution Summary"
+
+#### Enable Visual Studio Unit Test
+
+    * Go to the solution explorer
+    * Expand TestPlayingCards project
+    * Highlight PlayingCardsTests.cs file
+    * In Properties window, Update "Build Action" to Compile.
+    * Rebuild Solution
+    * Test Explorer should start discovering the tests and start running the tests if Auto run is enabled.
+
