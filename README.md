@@ -54,11 +54,32 @@ The MVP solution contains 3 projects using C#.Net, Visual Studio, Microsoft Unit
        * Unit test for PlayingCards DLL
        * Maintainability 65 (needs review/refactoring/redesign)
 
+    4. TestPlayingCards_xUnit
+       * Unit test for PlayingCards DLL
+       * using xUnit Framework
+       * Added for GitHub Travis Continuous Integration since there is no open source support for Visual Studio UnitTest framework is not supported 
+
 #### How to use and contribute
 
     * To contribute - you'll need Git, an IDE for compiling C#.Net and Windows environment
     * To test code only - you'll an IDE for compiling C#.Net and Windows environment
     * To use released MVP version - you'll Windows environment
 
-     
-    
+#### Contributing
+
+    * Clone repo
+    * Create new local branch
+    * Publish local branch
+    * Pass Travis CI
+    * Create pull request
+
+#### Branches
+
+    * master - current released version (running MVP_xUnit_DotNet4.5)
+    * MVP - dotNet 4.5 version, Microsoft UnitTest framework
+        * TestPlayingCards not compiled because Travis CI. Enable compilation if running in Visual Studio
+    * MVP_xUnit_DotNet4.5 - dotNet 4.5 version, xUnit framework v2
+        * TestPlayingCards not compiled because Travis CI. Enable compilation if running in Visual Studio
+    * mvp_xunit_framework - dotNet 4.0, xUnit framework v1
+        * TestPlayingCards not included.
+
